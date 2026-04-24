@@ -19,17 +19,43 @@ Obsidian 같은 노트앱과 다릅니다. 내가 직접 찾아보는 게 아니
 
 ---
 
-## 빠른 시작
+## 시작하는 법
+
+### 1. 레포 클론
 
 ```bash
 git clone https://github.com/tiger-dreams/my-second-brain
-cd my-second-brain
-# Claude Code로 열기
 ```
 
-1. **`CLAUDE.md`** 를 내 업무 맥락에 맞게 수정하세요 → [수정 가이드](#claudemd-수정-가이드)
-2. **첫 weekly log** 파일을 만드세요 → `docs/weekly-logs/weekly_log_YYYY-MM-DD.md`
-3. Claude Code를 열고 대화를 시작하세요
+### 2. VS Code로 열기
+
+터미널보다 VS Code 확장을 추천합니다.
+왼쪽 폴더 트리에서 weekly log와 memory 파일이 쌓이는 걸 눈으로 확인할 수 있습니다.
+
+> VS Code → Extensions → "Claude Code" 검색 후 설치
+
+### 3. 아무 말이나 한다
+
+Claude가 `[SETUP_REQUIRED]` 마커를 감지하면 자동으로 인터뷰를 시작합니다.
+
+```
+Claude: "안녕하세요! 먼저 몇 가지 여쭤볼게요.
+         어떤 팀에서 어떤 일을 하세요?"
+
+나:     "XX팀 PM이고 파트너사 커뮤니케이션 주로 해요"
+
+Claude: "주로 어떤 업무가 반복되나요?"
+...
+```
+
+4~5개 질문에 답하면 Claude가 CLAUDE.md를 직접 채워줍니다.
+**코드를 건드릴 필요 없습니다.**
+
+### 4. 설정 완료
+
+이제 업무 이야기를 나누면 됩니다. 나머지는 Claude가 합니다.
+
+> 매번 승인 없이 바로 실행하려면: 프롬프트 입력창 하단 모드 버튼 → `bypassPermissions` 선택
 
 ---
 
