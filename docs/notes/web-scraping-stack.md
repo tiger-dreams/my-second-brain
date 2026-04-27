@@ -29,6 +29,16 @@ Brave 자체 인덱스 기반 검색 API.
 - 한국 사이트(Medium, 네이버 블로그, 브런치) 검증됨
 - 로컬 실행 → **비용 0**, API 키 불필요
 
+## 무료 티어 (2026-04 기준)
+
+| 도구 | 무료 티어 | 비고 |
+|---|---|---|
+| **Hyperbrowser** | 가입 시 **1,000 크레딧 + 동시 1 브라우저** | 1 크레딧 = $0.001, 세션 길이/스펙에 따라 소진. 유료 Startup $30/mo (30k 크레딧) |
+| **Brave Search API** | **신규 가입자 무료 티어 폐지** (2026-02~) | 신규는 월 $5 크레딧(≈1,000 쿼리). 기존 Free 가입자만 2,000 쿼리/월 유지 |
+| **anyweb-reader** | **완전 무료** (로컬 Selenium) | 사용량 제한 없음, 단 로컬 리소스 사용 |
+
+→ **결론**: Brave Free가 사실상 사라진 지금, anyweb-reader의 비용 우위가 더 커짐. Hyperbrowser는 1,000 크레딧으로 가벼운 PoC만 가능.
+
 ## 능력 매트릭스
 
 | 항목 | Brave API | Hyperbrowser | anyweb-reader |
@@ -38,7 +48,7 @@ Brave 자체 인덱스 기반 검색 API.
 | JS 렌더링 | — | ✅ 클라우드 | ✅ 로컬 |
 | 봇 차단 우회 | — | ✅ 강력 | ⚠️ 기본 |
 | 멀티스텝 자동화 | ❌ | ✅ | ❌ |
-| 비용 | 종량제 | 종량제 | **무료** |
+| 비용 | 신규 유료化 | 종량제 (소량 무료) | **무료** |
 | 한국 사이트 | △ | ✅ | ✅ 검증됨 |
 
 ## 조합 패턴
@@ -75,3 +85,9 @@ Hyperbrowser (유료 fallback)
 - **검색 모드**: Brave API 키 받아 `read.sh --search "쿼리"` → URL 목록 → 각 본문 자동 추출
 - **fallback chain**: anyweb-reader 실패 시 Hyperbrowser 자동 호출 옵션
 - **batch 모드**: URL 리스트 파일 받아 병렬 처리
+
+## 출처
+
+- [Hyperbrowser Pricing](https://www.hyperbrowser.ai/docs/pricing)
+- [Brave Kills Free Search API Tier (implicator.ai)](https://www.implicator.ai/brave-drops-free-search-api-tier-puts-all-developers-on-metered-billing/)
+- [Brave Search API Free Plan 2026 (costbench)](https://costbench.com/software/ai-search-apis/brave-search-api/free-plan/)
