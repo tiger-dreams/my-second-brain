@@ -75,6 +75,7 @@ Claude Code는 도구를 실행할 때마다 승인 여부를 물어봅니다.
 
 ```
 my-second-brain/
+├── AGENTS.md                        # Codex/에이전트 작업 지침
 ├── CLAUDE.md                        # ⭐ Claude에게 나를 설명하는 문서
 ├── MEMORY.md                        # 메모리 인덱스 (자동 관리)
 ├── docs/
@@ -88,6 +89,9 @@ my-second-brain/
         ├── anyweb-reader/           # Selenium 기반 웹 리더
         └── pptx/                    # PPTX 생성 스킬
 ```
+
+Codex 같은 에이전트가 이 repo에서 작업할 때는 먼저
+[`AGENTS.md`](AGENTS.md)를 읽고, Claude Code는 [`CLAUDE.md`](CLAUDE.md)를 따릅니다.
 
 ---
 
