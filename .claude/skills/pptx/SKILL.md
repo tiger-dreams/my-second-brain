@@ -12,7 +12,8 @@ license: Proprietary. LICENSE.txt has complete terms
 |------|-------|
 | Read/analyze content | `python -m markitdown presentation.pptx` |
 | Edit or create from template | Read [editing.md](editing.md) |
-| Create from scratch | Read [pptxgenjs.md](pptxgenjs.md) |
+| Create or maintain a generated deck | Read [deck-generation.md](deck-generation.md) |
+| PptxGenJS API details | Read [pptxgenjs.md](pptxgenjs.md) |
 
 ---
 
@@ -42,9 +43,13 @@ python scripts/office/unpack.py presentation.pptx unpacked/
 
 ## Creating from Scratch
 
-**Read [pptxgenjs.md](pptxgenjs.md) for full details.**
+**Read [deck-generation.md](deck-generation.md) for the deck workflow.**
+Use [pptxgenjs.md](pptxgenjs.md) for API details.
 
 Use when no template or reference presentation is available.
+
+Generated decks should keep the JavaScript source, output PPTX, and assets
+together so another person can regenerate the deck on a different machine.
 
 ---
 

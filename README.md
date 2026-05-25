@@ -218,6 +218,9 @@ docs/weekly-logs/weekly_log_2026-04-27.md
 | `anyweb-reader` | Selenium으로 웹 읽기 | 봇 차단된 페이지, Medium, 네이버 블로그 |
 | `pptx` | pptxgenjs로 슬라이드 생성 | "PPTX 만들어줘" |
 
+PPTX를 코드로 생성하고 유지하는 법은
+[`deck-generation.md`](.claude/skills/pptx/deck-generation.md)를 참고하세요.
+
 내 스킬 만드는 법 → [`docs/skills-guide/how-to-create-skills.md`](docs/skills-guide/how-to-create-skills.md)
 
 ---
