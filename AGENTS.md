@@ -24,6 +24,8 @@ Keep these roles clear. Do not turn every task into code if a note, log, or skil
 
 ## First-Time Setup
 
+Distinguish using this template from maintaining it. When the user asks to review or update the public template, preserve `[SETUP_REQUIRED]` and the profile placeholders; do not run a personal setup interview or insert the maintainer's work history. The setup below applies when someone starts using their own workspace.
+
 If `CLAUDE.md` still contains `[SETUP_REQUIRED]`, handle setup before doing other work.
 
 Ask the setup questions one at a time, then update:
@@ -46,7 +48,7 @@ This workspace may contain meeting notes, business context, personal preferences
 - If a task may expose private information, pause and ask before publishing, pushing, or sharing.
 - Treat screenshots and exported files as potentially sensitive.
 
-Permission bypass modes can be useful for non-development work such as summaries, document cleanup, research, and weekly log updates. For software-changing tasks such as deleting files, installing packages, changing permissions, or deploying, be more conservative and keep approval steps where appropriate.
+Use the tool’s normal file-access and execution approval settings. A permission bypass mode is not required to use this template. Confirm the target and expected result before deleting files, installing tools, publishing, sending messages, or deploying.
 
 ---
 
@@ -103,6 +105,7 @@ Available bundled skills in this template include:
 
 - `anyweb-reader`: use when normal fetch cannot read an article or page
 - `pptx`: use for PowerPoint creation, editing, reverse-sync, and generated deck maintenance
+- `walkthrough-video`: create a narrated, subtitled walkthrough of a web service; read `.claude/skills/walkthrough-video/SKILL.md` first. This is a reusable production recipe, not a bundled one-command recorder.
 
 For PPTX generation, start with:
 

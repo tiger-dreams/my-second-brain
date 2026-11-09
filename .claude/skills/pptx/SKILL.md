@@ -6,12 +6,36 @@ license: Proprietary. LICENSE.txt has complete terms
 
 # PPTX Skill
 
+## Public Template Scope
+
+Start with [deck-generation.md](deck-generation.md) for the bundled PptxGenJS
+generation workflow, and [pptxgenjs.md](pptxgenjs.md) for API examples. Install
+Node.js and `pptxgenjs` separately; this repository does not bundle a runtime.
+For a local project, run `npm install pptxgenjs` in the deck folder before
+running its generator.
+
+The reference editing and rendering workflows below require helper scripts
+that are not bundled here: `scripts/thumbnail.py`, `scripts/add_slide.py`,
+`scripts/clean.py`, and `scripts/office/{unpack,pack,soffice}.py`. Do not run
+those commands against this clone or assume those tools were installed.
+Use them only if a separately installed presentation toolkit supplies the
+scripts and its own instructions. The optional rendering example in
+`deck-generation.md` has the same requirement; creating a new PPTX with its
+generator does not require these helpers.
+
+The existing frontmatter declares `Proprietary` and refers to `LICENSE.txt`,
+but that file is not included in this clone. The complete license terms and
+permission to reuse or redistribute this skill cannot be verified from this
+repository. Confirm them with the original provider before reuse or
+redistribution. This notice preserves the existing declaration and does not
+grant a new license.
+
 ## Quick Reference
 
 | Task | Guide |
 |------|-------|
 | Read/analyze content | `python -m markitdown presentation.pptx` |
-| Edit or create from template | Read [editing.md](editing.md) |
+| Edit or create from template | [editing.md](editing.md); requires the separately supplied helper scripts listed above |
 | Create or maintain a generated deck | Read [deck-generation.md](deck-generation.md) |
 | PptxGenJS API details | Read [pptxgenjs.md](pptxgenjs.md) |
 
@@ -22,7 +46,13 @@ license: Proprietary. LICENSE.txt has complete terms
 ```bash
 # Text extraction
 python -m markitdown presentation.pptx
+```
 
+After installing `markitdown[pptx]`, text extraction can run independently.
+The following commands are reference examples for a separately installed
+toolkit; their scripts are not included in this repository:
+
+```bash
 # Visual overview
 python scripts/thumbnail.py presentation.pptx
 
@@ -34,7 +64,9 @@ python scripts/office/unpack.py presentation.pptx unpacked/
 
 ## Editing Workflow
 
-**Read [editing.md](editing.md) for full details.**
+Read [editing.md](editing.md) only when the required helper scripts are
+available from a separate installation. This clone alone cannot execute that
+workflow. For a new deck, use [deck-generation.md](deck-generation.md).
 
 1. Analyze template with `thumbnail.py`
 2. Unpack → manipulate slides → edit content → clean → pack
@@ -211,7 +243,9 @@ Report ALL issues found, including minor ones.
 
 ## Converting to Images
 
-Convert presentations to individual slide images for visual inspection:
+If a separately installed toolkit supplies `scripts/office/soffice.py`, use
+its documented working directory to convert presentations to individual
+slide images for visual inspection. The wrapper is not bundled here:
 
 ```bash
 python scripts/office/soffice.py --headless --convert-to pdf output.pptx
@@ -231,7 +265,7 @@ pdftoppm -jpeg -r 150 -f N -l N output.pdf slide-fixed
 ## Dependencies
 
 - `pip install "markitdown[pptx]"` - text extraction
-- `pip install Pillow` - thumbnail grids
-- `npm install -g pptxgenjs` - creating from scratch
-- LibreOffice (`soffice`) - PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
+- `pip install Pillow` - used by thumbnail helpers, which are not bundled
+- Node.js and `npm install pptxgenjs` in the deck folder - creating from scratch
+- LibreOffice (`soffice`) - PDF conversion; install and configure separately. The referenced `scripts/office/soffice.py` wrapper is not bundled
 - Poppler (`pdftoppm`) - PDF to images

@@ -1,6 +1,11 @@
 # 🧠 my-second-brain
 
-> Claude Code를 second brain으로 운영하는 워크스페이스 템플릿입니다.
+> AI 에이전트와 함께 업무를 기록하고, 반복하는 방식을 스킬로 정리하는 워크스페이스 템플릿입니다.
+
+**처음 오셨다면 [내 업무로 시작하는 가이드](docs/getting-started.md)부터 읽어보세요.**
+외부 서비스 연결 없이 가상 업무 한 건을 기록해볼 수 있습니다. Claude Code를 기준으로 시작 절차를 제공하며, Codex 등에서는 `AGENTS.md`와 필요한 스킬을 직접 읽도록 요청해 사용할 수 있습니다.
+
+이 저장소는 다른 사람의 방식을 배우고, 내 업무에 맞게 바꾸고, 다시 공유하는 출발점입니다. 실제 개인 업무 기록은 자신의 **비공개 저장소**에서 관리하세요. 공개 Fork는 원본처럼 공개되므로, 비공개 업무 공간이 필요하면 별도의 Private 저장소를 만드세요.
 
 Andrej Karpathy의 **LLM Wiki** 개념을 실무에 적용한 구조예요.
 "사람은 업무를 하고, Claude가 기록을 유지한다"는 원칙으로 운영합니다.
@@ -25,6 +30,7 @@ Obsidian 같은 노트앱과 다릅니다. 내가 직접 찾아보는 게 아니
 
 ```bash
 git clone https://github.com/tiger-dreams/my-second-brain
+cd my-second-brain
 ```
 
 ### 2. VS Code로 열기
@@ -36,7 +42,14 @@ git clone https://github.com/tiger-dreams/my-second-brain
 
 ### 3. 아무 말이나 한다
 
-Claude가 `[SETUP_REQUIRED]` 마커를 감지하면 자동으로 인터뷰를 시작합니다.
+처음에는 아래처럼 시작하면 됩니다. 사용하는 도구의 파일 접근·지침 자동 로딩 설정에 따라 시작 동작이 다를 수 있습니다.
+
+```text
+AGENTS.md와 CLAUDE.md를 읽고, 처음 사용하는 업무 공간으로 설정해줘.
+설정 질문은 한 번에 하나씩 해줘.
+```
+
+Claude는 `[SETUP_REQUIRED]` 마커에 따라 인터뷰를 진행합니다.
 
 ```
 Claude: "안녕하세요! 먼저 몇 가지 여쭤볼게요.
@@ -53,21 +66,13 @@ Claude: "주로 어떤 업무가 반복되나요?"
 
 ### 4. 설정 완료
 
-이제 업무 이야기를 나누면 됩니다. 나머지는 Claude가 합니다.
+이제 업무 이야기를 나누고, 생성한 기록과 결과를 확인합니다. 외부 서비스는 해당 MCP를 연결하기 전까지 자동으로 읽을 수 없습니다.
 
-### 5. Permission 모드 설정 (VS Code 기준)
+### 5. 작업 범위와 승인 설정
 
-Claude Code는 도구를 실행할 때마다 승인 여부를 물어봅니다.
-프롬프트 입력창 하단의 모드 버튼에서 `bypassPermissions`를 선택하면
-반복 승인 없이 진행할 수 있습니다.
-
-다만 코딩 작업처럼 소프트웨어 동작이 바뀌는 경우에는 신중하게 판단하세요.
-파일 삭제, 패키지 설치, 배포, 권한 변경처럼 영향이 큰 작업은 승인 과정을
-남겨두는 편이 안전합니다.
-
-반대로 문서 정리, 회의록 요약, 리서치, weekly log 업데이트처럼
-비개발 업무에서는 매번 결과물을 확인하고 승인하는 비용이 꽤 큽니다.
-이런 작업은 `bypassPermissions`를 켜두면 흐름이 훨씬 자연스럽습니다.
+사용하는 AI 도구에서 접근할 폴더와 실행 권한을 확인하세요.
+문서 정리와 로컬 기록부터 시작하고, 삭제·설치·공개·발송은 대상과 결과를 확인한 뒤 실행합니다.
+권한 확인을 한꺼번에 생략하는 모드는 시작에 필요하지 않습니다.
 
 ---
 
@@ -79,6 +84,7 @@ my-second-brain/
 ├── CLAUDE.md                        # ⭐ Claude에게 나를 설명하는 문서
 ├── MEMORY.md                        # 메모리 인덱스 (자동 관리)
 ├── docs/
+│   ├── getting-started.md            # 첫 가상 업무 실습
 │   ├── weekly-logs/                 # 주간 업무 로그
 │   │   └── weekly_log_YYYY-MM-DD.md
 │   └── skills-guide/
@@ -87,7 +93,8 @@ my-second-brain/
     ├── memory/                      # 대화 간 기억 저장소 (자동 관리)
     └── skills/
         ├── anyweb-reader/           # Selenium 기반 웹 리더
-        └── pptx/                    # PPTX 생성 스킬
+        ├── pptx/                    # PPTX 생성 스킬
+        └── walkthrough-video/       # 화면 시연 + 나레이션 + 자막
 ```
 
 Codex 같은 에이전트가 이 repo에서 작업할 때는 먼저
@@ -97,7 +104,7 @@ Codex 같은 에이전트가 이 repo에서 작업할 때는 먼저
 
 ## 이런 게 가능합니다
 
-말로 요청하면 Claude가 실행합니다. 코딩 지식 불필요.
+다음은 AI에게 요청할 수 있는 예시입니다. 파일을 만드는 작업은 실행 환경과 필요한 도구를 갖춘 뒤 결과를 확인합니다.
 
 **기록**
 ```
@@ -197,7 +204,7 @@ Claude에게 내가 누구인지, 어떤 업무를 하는지, 어떻게 도와�
 
 ## 무엇이 어디에 쌓이나요?
 
-Claude Code로 이 레포를 열고 대화를 나누면 두 곳에 기억이 쌓입니다.
+이 저장소는 업무 로그와 주제별 메모리를 파일로 관리하도록 안내합니다. 실제 저장은 AI 도구가 지침을 읽고 파일을 수정할 수 있을 때 이루어집니다.
 
 ### 1. Weekly Log — Active (내가 트리거)
 ```
@@ -215,7 +222,7 @@ docs/weekly-logs/weekly_log_2026-04-27.md
 .claude/memory/user_profile.md
 .claude/memory/project_xxx.md
 ```
-내가 신경 쓰지 않아도 Claude가 대화 중에 "이건 다음에도 기억해야겠다" 싶으면 알아서 저장합니다. 내 역할, 선호하는 방식, 프로젝트 맥락 같은 것들.
+이 저장소의 지침에 따라 AI가 역할, 선호하는 방식, 프로젝트 맥락을 주제별 파일로 정리할 수 있습니다. 도구 자체의 메모리 기능과는 별개이므로, 저장된 파일을 직접 확인하세요.
 
 | | Weekly Log | Memory |
 |---|---|---|
@@ -233,6 +240,9 @@ docs/weekly-logs/weekly_log_2026-04-27.md
 |------|------|-----------|
 | `anyweb-reader` | Selenium으로 웹 읽기 | 봇 차단된 페이지, Medium, 네이버 블로그 |
 | `pptx` | pptxgenjs로 슬라이드 생성 | "PPTX 만들어줘" |
+| `walkthrough-video` | 화면 시연·나레이션·자막이 있는 안내 영상 제작 절차 | "릴리즈 안내 영상 만들어줘" |
+
+영상 제작은 [스킬](.claude/skills/walkthrough-video/SKILL.md)과 [사용 가이드](docs/skills-guide/walkthrough-video.md)를 참고하세요. 서비스마다 로그인·화면 동작·안내 내용이 달라, 이 저장소만 내려받아 바로 녹화하는 실행기는 아닙니다. AI와 함께 대상에 맞는 제작 스크립트를 구성합니다.
 
 PPTX를 코드로 생성하고 유지하는 법은
 [`deck-generation.md`](.claude/skills/pptx/deck-generation.md)를 참고하세요.
@@ -264,3 +274,5 @@ PPTX를 코드로 생성하고 유지하는 법은
 
 - [Andrej Karpathy - LLM Wiki (GitHub Gist)](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - [Claude Code 공식 문서](https://docs.anthropic.com/claude-code)
+- [내 업무로 시작하는 가이드](docs/getting-started.md)
+- [영상 제작 스킬 사용 가이드](docs/skills-guide/walkthrough-video.md)

@@ -1,3 +1,8 @@
+---
+name: anyweb-reader
+description: Read a user-provided webpage with Selenium when the normal fetch fails or JavaScript rendering is required.
+---
+
 # anyweb-reader
 
 Selenium 기반 웹페이지 리더 - WebFetch 실패 시 대안

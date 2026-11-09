@@ -20,9 +20,14 @@ Claude Code에서 반복되는 작업이 생기면 스킬로 만드세요.
 
 ## Step 1: SKILL.md 작성
 
-Claude가 이 파일을 읽고 언제 스킬을 실행할지 판단합니다.
+에이전트는 파일 맨 앞의 YAML `name`과 `description`으로 스킬을 식별하고 적용할 작업을 판단합니다. `name`은 폴더명과 같은 영문 소문자·숫자·하이픈으로 쓰고, `description`에는 기능과 사용 시점을 적으세요.
 
 ```markdown
+---
+name: my-skill
+description: 반복되는 특정 작업을 처리합니다. 해당 작업을 요청할 때 사용합니다.
+---
+
 # 스킬 이름
 
 한 줄 설명
@@ -114,6 +119,11 @@ log_info "실행 중: $PARAM"
 
 **SKILL.md:**
 ```markdown
+---
+name: weather
+description: 사용자가 도시의 현재 날씨를 요청하면 wttr.in에서 조회합니다.
+---
+
 # weather
 
 현재 날씨를 조회합니다.
