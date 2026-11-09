@@ -3,20 +3,20 @@
 > AI 에이전트와 함께 업무를 기록하고, 반복하는 방식을 스킬로 정리하는 워크스페이스 템플릿입니다.
 
 **처음 오셨다면 [내 업무로 시작하는 가이드](docs/getting-started.md)부터 읽어보세요.**
-외부 서비스 연결 없이 가상 업무 한 건을 기록해볼 수 있습니다. Claude Code를 기준으로 시작 절차를 제공하며, Codex 등에서는 `AGENTS.md`와 필요한 스킬을 직접 읽도록 요청해 사용할 수 있습니다.
+외부 서비스 연결 없이 가상 업무 한 건을 기록해볼 수 있습니다. Codex 앱 또는 Claude Desktop의 Code에서 폴더를 열고 시작합니다. VS Code나 확장 설치는 필요하지 않습니다.
 
 이 저장소는 다른 사람의 방식을 배우고, 내 업무에 맞게 바꾸고, 다시 공유하는 출발점입니다. 실제 개인 업무 기록은 자신의 **비공개 저장소**에서 관리하세요. 공개 Fork는 원본처럼 공개되므로, 비공개 업무 공간이 필요하면 별도의 Private 저장소를 만드세요.
 
 Andrej Karpathy의 **LLM Wiki** 개념을 실무에 적용한 구조예요.
-"사람은 업무를 하고, Claude가 기록을 유지한다"는 원칙으로 운영합니다.
+"사람은 업무를 하고, AI가 기록을 유지한다"는 원칙으로 운영합니다.
 
 ---
 
 ## 이게 뭔가요?
 
-Obsidian 같은 노트앱과 다릅니다. 내가 직접 찾아보는 게 아니라, **Claude가 알아서 꺼내옵니다.**
+업무 기록과 규칙을 파일로 남기고, AI에게 필요한 내용을 찾아 정리하도록 요청하는 구조입니다.
 
-- 📓 **weekly log** — 업무 기억을 Claude가 쌓고 요약
+- 📓 **weekly log** — 업무 기억을 AI가 쌓고 요약
 - 🔧 **skills** — 반복 작업을 스킬로 만들어 자동 실행
 - ⚡ **1회용 코딩** — 그때그때 필요한 스크립트를 같은 공간에서
 
@@ -33,12 +33,14 @@ git clone https://github.com/tiger-dreams/my-second-brain
 cd my-second-brain
 ```
 
-### 2. VS Code로 열기
+### 2. 데스크톱 앱에서 폴더 열기
 
-터미널보다 VS Code 확장을 추천합니다.
-왼쪽 폴더 트리에서 weekly log와 memory 파일이 쌓이는 걸 눈으로 확인할 수 있습니다.
+| 사용하는 앱 | 시작 방법 |
+|---|---|
+| Codex 앱 | 내려받은 `my-second-brain` 폴더를 프로젝트로 열고 로컬에서 새 대화를 시작합니다. |
+| Claude Desktop의 Code | Code에서 로컬 작업 폴더로 `my-second-brain`을 선택하고 대화를 시작합니다. |
 
-> VS Code → Extensions → "Claude Code" 검색 후 설치
+AI가 이 폴더의 파일을 읽고 수정할 수 있어야 합니다. 앱 설치·로그인과 이용 가능한 요금제는 각 앱의 안내를 따릅니다.
 
 ### 3. 아무 말이나 한다
 
@@ -49,7 +51,7 @@ AGENTS.md와 CLAUDE.md를 읽고, 처음 사용하는 업무 공간으로 설정
 설정 질문은 한 번에 하나씩 해줘.
 ```
 
-Claude는 `[SETUP_REQUIRED]` 마커에 따라 인터뷰를 진행합니다.
+AI는 `[SETUP_REQUIRED]` 마커에 따라 인터뷰를 진행합니다. `CLAUDE.md`라는 파일명은 기존 구조를 유지한 것이며, Codex도 `AGENTS.md`의 지시에 따라 이 파일의 프로필과 업무 규칙을 읽습니다.
 
 ```
 Claude: "안녕하세요! 먼저 몇 가지 여쭤볼게요.
@@ -61,7 +63,7 @@ Claude: "주로 어떤 업무가 반복되나요?"
 ...
 ```
 
-4~5개 질문에 답하면 Claude가 CLAUDE.md를 직접 채워줍니다.
+질문에 답하면 AI가 `CLAUDE.md`의 프로필을 채워줍니다.
 **코드를 건드릴 필요 없습니다.**
 
 ### 4. 설정 완료
@@ -89,6 +91,7 @@ my-second-brain/
 │   │   └── weekly_log_YYYY-MM-DD.md
 │   └── skills-guide/
 │       └── how-to-create-skills.md  # 내 스킬 만드는 법
+├── .agents/skills/                  # Codex용 스킬 연결 (원본은 아래)
 └── .claude/
     ├── memory/                      # 대화 간 기억 저장소 (자동 관리)
     └── skills/
@@ -97,8 +100,7 @@ my-second-brain/
         └── walkthrough-video/       # 화면 시연 + 나레이션 + 자막
 ```
 
-Codex 같은 에이전트가 이 repo에서 작업할 때는 먼저
-[`AGENTS.md`](AGENTS.md)를 읽고, Claude Code는 [`CLAUDE.md`](CLAUDE.md)를 따릅니다.
+Codex는 [`AGENTS.md`](AGENTS.md), Claude Code는 [`CLAUDE.md`](CLAUDE.md)에서 시작하며 두 파일은 공통 규칙과 프로필을 연결합니다. 스킬의 원본은 `.claude/skills/`에 있고, `.agents/skills/`에는 같은 스킬을 가리키는 상대 심볼릭 링크가 있어 Codex도 발견할 수 있습니다. 홈 폴더에 별도로 복사할 필요는 없습니다. 자세한 사용법은 [시작 가이드](docs/getting-started.md)를 참고하세요.
 
 ---
 
@@ -156,7 +158,7 @@ Codex 같은 에이전트가 이 repo에서 작업할 때는 먼저
 ## CLAUDE.md 수정 가이드
 
 `CLAUDE.md`는 **"새 직원 온보딩 문서"** 라고 생각하세요.
-Claude에게 내가 누구인지, 어떤 업무를 하는지, 어떻게 도와주면 되는지 알려주는 파일입니다.
+사용하는 AI에게 내가 누구인지, 어떤 업무를 하는지, 어떻게 도와주면 되는지 알려주는 파일입니다. Codex도 이 프로필을 함께 사용합니다.
 
 반드시 수정해야 할 항목:
 
@@ -174,14 +176,14 @@ Claude에게 내가 누구인지, 어떤 업무를 하는지, 어떻게 도와�
 
 ## Weekly Log 사용법
 
-파일을 직접 만들 필요 없습니다. Claude에게 말하면 됩니다.
+파일을 직접 만들 필요 없습니다. 사용하는 AI에게 말하면 됩니다.
 
 ```
 "이번 주 로그 만들어줘"
-→ Claude가 오늘 날짜 기준으로 weekly_log_2026-04-27.md 자동 생성
+→ AI가 해당 주 월요일 날짜로 주간 로그 생성
 ```
 
-업무가 생길 때마다 Claude에게 알려주면 로그에 기록해줍니다:
+업무가 생길 때마다 AI에게 알려주면 로그에 기록해줍니다:
 
 ```
 "오늘 JIRA-123 처리했어"           → [JIRA-123] 항목 추가
@@ -210,7 +212,7 @@ Claude에게 내가 누구인지, 어떤 업무를 하는지, 어떻게 도와�
 ```
 docs/weekly-logs/weekly_log_2026-04-27.md
 ```
-내가 Claude에게 업무를 말해줄 때 쌓입니다. Claude가 알아서 찾아오지 않습니다.
+내가 AI에게 업무를 말해줄 때 쌓입니다. 연결하지 않은 외부 서비스에서 업무를 자동으로 가져오지는 않습니다.
 
 ```
 "오늘 이 이슈 처리했어"  →  로그에 기록
@@ -226,11 +228,11 @@ docs/weekly-logs/weekly_log_2026-04-27.md
 
 | | Weekly Log | Memory |
 |---|---|---|
-| 방식 | Active — 내가 말해줘야 쌓임 | Passive — Claude가 알아서 저장 |
+| 방식 | Active — 내가 알려준 업무를 기록 | Passive — AI가 지침에 따라 정리 |
 | 내용 | 이번 주 한 일 | 나라는 사람에 대한 맥락 |
 | 단위 | 주차별 파일 | 주제별 파일 |
 
-> 두 가지 모두 **Claude Code가 켜져 있는 동안**에만 동작합니다.
+> 파일은 대화가 끝나도 남습니다. AI가 파일을 읽거나 갱신하는 작업은 해당 폴더에 접근할 수 있는 대화가 실행 중일 때 이루어집니다.
 
 ---
 
@@ -253,8 +255,12 @@ PPTX를 코드로 생성하고 유지하는 법은
 
 ## 사내 MCP가 있다면
 
-회사에서 Slack, Jira, Wiki 등의 MCP를 제공한다면 `.mcp.json`에 추가하세요.
-스킬과 MCP를 연결하면 훨씬 강력해집니다.
+회사에서 Slack, Jira, Wiki 등의 MCP를 제공한다면 사용하는 앱에 별도로 연결합니다. 이 템플릿을 내려받는 것만으로 계정이나 서버가 연결되지는 않습니다.
+
+- Codex: 앱의 MCP 설정을 사용하거나 `~/.codex/config.toml`에 설정합니다. 신뢰한 프로젝트에서는 `.codex/config.toml`로 범위를 제한할 수도 있습니다.
+- Claude Desktop의 Code: Code 세션에서 사용할 수 있는 MCP 연결 방법을 따릅니다. 일반 Chat에 연결한 도구가 Code에도 자동으로 연결된다고 가정하지 않습니다.
+
+아래는 Claude Code용 프로젝트 `.mcp.json`의 구조 예시입니다. Codex 설정 형식과는 다릅니다. 서버 주소·인증 정보는 각자의 로컬 설정으로 관리하세요.
 
 ```json
 {
@@ -274,5 +280,9 @@ PPTX를 코드로 생성하고 유지하는 법은
 
 - [Andrej Karpathy - LLM Wiki (GitHub Gist)](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 - [Claude Code 공식 문서](https://docs.anthropic.com/claude-code)
+- [Claude Desktop의 Code 시작하기](https://code.claude.com/docs/en/desktop-quickstart)
+- [Codex 작업 지침](https://developers.openai.com/codex/guides/agents-md)
+- [Codex 스킬](https://developers.openai.com/codex/skills)
+- [Codex MCP 설정](https://developers.openai.com/codex/mcp)
 - [내 업무로 시작하는 가이드](docs/getting-started.md)
 - [영상 제작 스킬 사용 가이드](docs/skills-guide/walkthrough-video.md)

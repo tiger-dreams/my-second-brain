@@ -1,6 +1,6 @@
 # Agent Instructions
 
-This repository is a second-brain workspace template for Claude Code and other coding agents.
+This repository is a second-brain workspace template for the Codex app and Claude Code, including Code in Claude Desktop. VS Code is not required.
 
 The main principle is simple:
 
@@ -19,6 +19,8 @@ This repo is not only a code repo. It is a working memory system.
 - `.claude/skills/`: reusable workflows for repeated tasks
 
 Keep these roles clear. Do not turn every task into code if a note, log, or skill update is the better artifact.
+
+At the start of a task, also read `CLAUDE.md` for the shared user profile and workspace rules. Its filename is historical; the profile applies when using Codex as well. This is a repository convention, not a claim that Codex loads `CLAUDE.md` automatically. Claude Code imports this file through `CLAUDE.md`; do not recursively reload files already read.
 
 ---
 
@@ -100,6 +102,8 @@ Never overwrite existing logs. Append and preserve history.
 ## Skill Usage
 
 Before using a skill, read its `SKILL.md` or guide file enough to follow the expected workflow.
+
+Skill sources live in `.claude/skills/`. Repository-local relative symlinks under `.agents/skills/` expose the same folders to Codex. Edit the source files rather than creating a second copy. If a checkout did not preserve symlinks, read the source `SKILL.md` explicitly and explain that automatic discovery has not been verified.
 
 Available bundled skills in this template include:
 
