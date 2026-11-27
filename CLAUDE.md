@@ -45,20 +45,7 @@
 
 ## Weekly Log 운영 규칙
 
-- 주간 업무 로그 위치: `docs/weekly-logs/weekly_log_YYYY-MM-DD.md`
-- 업무 이벤트 발생 시 즉시 해당 주차 로그 업데이트
-- 업무 관련 질문 시 현재 주차 로그 먼저 확인 → 필요 시 이전 주차 거슬러 읽기
-- 이전 주 미완료 `[ ]` 항목은 새 주차 파일에 이월
-
-### 소스 태그 규칙
-
-| 태그 | 의미 |
-|------|------|
-| `[JIRA-123]` | JIRA 티켓 번호 |
-| `[SLACK]` | Slack 메시지 |
-| `[MAIL]` | 이메일 |
-| `[MEET]` | 회의 |
-| `[TODO]` | 내부 작업 |
+Codex와 Claude 모두 [AGENTS.md의 Logging Strategy](AGENTS.md#logging-strategy)를 따릅니다. 메인·서브 채팅의 기록 기준, 로그 작성에 대한 상시 승인, 중복 방지와 소스 태그는 해당 공통 지침에서 관리합니다.
 
 ---
 

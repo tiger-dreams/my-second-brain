@@ -72,6 +72,8 @@ Use Korean by default, matching the repository's existing documentation style.
 
 Use `docs/weekly-logs/` for work memory that should become part of the user's second brain.
 
+This section is the shared logging policy for Codex and Claude. Keep logging rules here; `CLAUDE.md` imports this file and links to this section.
+
 Log when:
 
 - the user explicitly asks to log something
@@ -80,7 +82,26 @@ Log when:
 - a repeatable workflow or skill is created
 - a debugging or problem-solving journey may be useful later
 
-Recommended weekly log entry shape:
+Do not log simple Q&A, routine searches with no durable finding, hypothetical examples, or secrets. Respect an explicit request not to record something. When maintaining this public template, keep actual work history in the maintainer's private work log rather than adding it to the template.
+
+### Main And Side Conversations
+
+- Apply the same logging threshold to main and side conversations. These workspace instructions explicitly authorize ongoing weekly log updates for meaningful work performed in each conversation; do not ask for a separate logging request or renewed approval each time.
+- Weekly log updates are an authorized exception to a side conversation's general restriction on file changes, subject to the tool's actual permissions and higher-priority instructions. This exception does not authorize edits to other files, external messages or Wiki updates, or execution or completion of the parent conversation's work.
+- Record only work performed in the current conversation, including a user's report of completed work clearly attributed to the user. Inherited parent history alone is not a newly completed task.
+- Reread the latest weekly log immediately before editing. Update the matching entry for the same work; preserve other conversations' entries and unfinished states. If the file changes before saving, reread it and reapply only the intended edit.
+- Distinguish verified facts, user-provided information, proposals, and unresolved questions. Preparing a draft does not mean it was sent. Keep unfinished follow-ups separate from completed work; do not infer owners, deadlines, or agreements.
+- If the log cannot be updated because of access or tool restrictions, report the pending entry and reason. Do not claim that it was saved.
+
+### Weekly Log Operation
+
+- Use `docs/weekly-logs/weekly_log_YYYY-MM-DD.md`, with the Monday of the relevant week in the filename and the actual work date inside. Use the configured central workspace if the user has designated one; do not create competing logs in each project.
+- When the week's file is missing, create it using the repository's weekly log template. Carry over unresolved `[ ]` items from the previous week and preserve their status.
+- For work-related questions, read the current weekly log first, then earlier weeks as needed.
+- Mark completed work with `[x]` and unfinished work with `[ ]`. Include the result, a relevant source or artifact link, and any next action needed. Keep routine entries concise; use the expanded shape below when the background or investigation will be useful later.
+- Add source tags: `[JIRA-123]` for a Jira issue, `[SLACK]` for Slack, `[MAIL]` for email, `[MEET]` for a meeting, and `[TODO]` for internal work. Keep identifiers and links when available, subject to the workspace's privacy rules.
+
+Expanded weekly log entry shape:
 
 ```markdown
 ### [Topic]
@@ -95,7 +116,7 @@ Recommended weekly log entry shape:
 
 For technical agent-work logs that are not part of weekly business memory, a `logs/YYYY/MM-month.md` structure is also acceptable if the workspace already uses it.
 
-Never overwrite existing logs. Append and preserve history.
+Preserve existing log history. Append new work and make focused updates to matching entries rather than replacing the whole log.
 
 ---
 

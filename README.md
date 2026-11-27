@@ -176,6 +176,8 @@ Codex는 [`AGENTS.md`](AGENTS.md), Claude Code는 [`CLAUDE.md`](CLAUDE.md)에서
 
 ## Weekly Log 사용법
 
+Codex와 Claude는 [공통 로그 지침](AGENTS.md#logging-strategy)을 따릅니다. 메인·서브 채팅 모두 의미 있는 작업을 마치면 별도 기록 요청 없이 weekly log를 갱신합니다. 같은 작업은 기존 항목을 보완하며, 다른 대화의 기록과 미완료 항목을 보존합니다. 실제 기록은 해당 대화에 로그 폴더를 수정할 권한이 있을 때 이루어집니다.
+
 파일을 직접 만들 필요 없습니다. 사용하는 AI에게 말하면 됩니다.
 
 ```
