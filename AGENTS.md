@@ -13,6 +13,7 @@ The main principle is simple:
 This repo is not only a code repo. It is a working memory system.
 
 - `CLAUDE.md`: how the agent should work with the user
+- `AGENTS.md`: shared operating rules for Codex and Claude
 - `MEMORY.md`: index of longer-term memory files
 - `.claude/memory/`: persistent context and preferences
 - `docs/weekly-logs/`: weekly work logs and accumulated wiki
@@ -21,6 +22,16 @@ This repo is not only a code repo. It is a working memory system.
 Keep these roles clear. Do not turn every task into code if a note, log, or skill update is the better artifact.
 
 At the start of a task, also read `CLAUDE.md` for the shared user profile and workspace rules. Its filename is historical; the profile applies when using Codex as well. This is a repository convention, not a claim that Codex loads `CLAUDE.md` automatically. Claude Code imports this file through `CLAUDE.md`; do not recursively reload files already read.
+
+### Shared Rule Ownership
+
+Keep shared operating rules in `AGENTS.md`; keep setup, the user profile, and tool-specific instructions in `CLAUDE.md`. If a topic needs a separate guide, name that guide as the canonical source and link to it. Update the canonical rule and its references instead of maintaining separate copies for each tool. When existing instructions conflict and the intended rule is unclear, identify the conflict rather than silently choosing one.
+
+### Confirm The Repository Before Editing
+
+Before changing repository files, verify the checkout root, remote host, owner/repository, current branch, and existing changes. Match them against the user's requested target; a similar folder or repository name is insufficient. Briefly identify the target in the first progress update once verified. For a local folder without Git, state the folder and that it has no Git remote.
+
+Repeat the check when switching repositories and before committing or pushing. Do not infer that GitHub and an internal Git host contain the same repository. Ask only when the available evidence cannot resolve the target. After pushing, compare the intended remote branch SHA with local HEAD before reporting remote completion.
 
 ---
 
@@ -99,6 +110,7 @@ Do not log simple Q&A, routine searches with no durable finding, hypothetical ex
 - When the week's file is missing, create it using the repository's weekly log template. Carry over unresolved `[ ]` items from the previous week and preserve their status.
 - For work-related questions, read the current weekly log first, then earlier weeks as needed.
 - Mark completed work with `[x]` and unfinished work with `[ ]`. Include the result, a relevant source or artifact link, and any next action needed. Keep routine entries concise; use the expanded shape below when the background or investigation will be useful later.
+- Write routine entries in this order: result, remaining action or waiting party when applicable, then source or artifact link. Keep them to one to three sentences. Store lengthy research, commands, and revision history in a linked supporting document; include a caveat in the log when it changes the reader's decision.
 - Add source tags: `[JIRA-123]` for a Jira issue, `[SLACK]` for Slack, `[MAIL]` for email, `[MEET]` for a meeting, and `[TODO]` for internal work. Keep identifiers and links when available, subject to the workspace's privacy rules.
 
 Expanded weekly log entry shape:
@@ -118,6 +130,16 @@ For technical agent-work logs that are not part of weekly business memory, a `lo
 
 Preserve existing log history. Append new work and make focused updates to matching entries rather than replacing the whole log.
 
+### Check Whether Follow-Up Work Remains
+
+Before adding a follow-up or asking for another approval, check the current source, completion evidence, and any approval already given for the same action and target. Generic checklist wording, an old reminder, or an unverified possibility alone does not establish a new task. Do not reopen completed work without evidence that something remains.
+
+Record an actual remaining action separately from a proposal or unresolved question. Preserve any confirmed owner, deadline, and waiting party; do not invent them. If evidence is unavailable, state what remains unknown rather than presenting the work as required or complete. Continue actions already authorized within their scope.
+
+## Memory Management
+
+Use `MEMORY.md` as the index for reusable context in `.claude/memory/`. Both Codex and Claude use these repository files. Keep lasting preferences, feedback, and project context here, and dated work events in the weekly log. Follow the user's explicit memory permissions and preserve existing entries. Do not copy the same operating rule into memory and multiple instruction files; link to its canonical location.
+
 ---
 
 ## Skill Usage
@@ -131,6 +153,8 @@ Available bundled skills in this template include:
 - `anyweb-reader`: use when normal fetch cannot read an article or page
 - `pptx`: use for PowerPoint creation, editing, reverse-sync, and generated deck maintenance
 - `walkthrough-video`: create a narrated, subtitled walkthrough of a web service; read `.claude/skills/walkthrough-video/SKILL.md` first. This is a reusable production recipe, not a bundled one-command recorder.
+
+For a new repeatable workflow, see `docs/skills-guide/how-to-create-skills.md`.
 
 For PPTX generation, start with:
 
@@ -157,6 +181,7 @@ Keep generated work reproducible.
 ## Editing Rules
 
 - Prefer small, focused changes.
+- One-off scripts may live at the repository root; keep reusable tools and their supporting files together when they grow.
 - Preserve existing user-written notes and logs.
 - Do not delete or rewrite memory unless the user explicitly asks.
 - Do not commit secrets, local credentials, generated tokens, or private exports.

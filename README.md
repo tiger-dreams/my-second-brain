@@ -102,6 +102,8 @@ my-second-brain/
 
 Codex는 [`AGENTS.md`](AGENTS.md), Claude Code는 [`CLAUDE.md`](CLAUDE.md)에서 시작하며 두 파일은 공통 규칙과 프로필을 연결합니다. 스킬의 원본은 `.claude/skills/`에 있고, `.agents/skills/`에는 같은 스킬을 가리키는 상대 심볼릭 링크가 있어 Codex도 발견할 수 있습니다. 홈 폴더에 별도로 복사할 필요는 없습니다. 자세한 사용법은 [시작 가이드](docs/getting-started.md)를 참고하세요.
 
+공통 운영 규칙은 `AGENTS.md`, 초기 설정·사용자 프로필·도구별 안내는 `CLAUDE.md`에서 관리합니다. AI는 수정 전에 원격 호스트·소유자/저장소·브랜치를 확인합니다. 로그는 결과·남은 행동·근거 링크 순서로 간결하게 남기고, 후속 업무를 추가하기 전에 기존 완료·승인 근거를 확인합니다.
+
 ---
 
 ## 이런 게 가능합니다

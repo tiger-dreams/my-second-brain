@@ -2,6 +2,8 @@
 
 @AGENTS.md
 
+Codex와 Claude의 공통 운영 규칙은 `AGENTS.md`가 정본입니다. 이 파일에서는 초기 설정·사용자 프로필·도구별 안내를 관리하며, 공통 규칙은 아래 링크를 따라 수정합니다.
+
 ## [SETUP_REQUIRED]
 
 공개 템플릿 자체의 검토·유지보수 요청이라면 인터뷰를 실행하지 않고 이 마커와 프로필 예시를 유지합니다. 아래 절차는 사용자가 자신의 업무 공간으로 사용하기 시작할 때 적용합니다.
@@ -51,48 +53,28 @@ Codex와 Claude 모두 [AGENTS.md의 Logging Strategy](AGENTS.md#logging-strateg
 
 ## Available Skills
 
-스킬 실행 전 반드시 해당 `.md` 파일을 읽어 파라미터 형식 확인.
-
-### anyweb-reader
-- **트리거**: "이 글 읽어줘", "URL 읽어줘", WebFetch 실패 시 자동 대안
-- **위치**: `.claude/skills/anyweb-reader/`
-- **스크립트**: `bash $SKILL_DIR/scripts/read-medium.sh "URL"`
-
-### pptx
-- **트리거**: "PPTX 만들어줘", "슬라이드 생성해줘", "덱 만들어줘"
-- **위치**: `.claude/skills/pptx/`
-
-### walkthrough-video
-- **트리거**: "워크스루 영상 만들어줘", "릴리즈 안내 영상 만들어줘"
-- **위치**: `.claude/skills/walkthrough-video/SKILL.md`
-- **방식**: 대상 서비스에 맞춰 녹화·나레이션·자막 제작 절차를 구성합니다. 입력 자료와 스크립트를 먼저 확인합니다.
+[AGENTS.md의 Skill Usage](AGENTS.md#skill-usage)에서 공통 목록과 원본 경로를 관리합니다. 각 스킬의 실행 절차는 해당 `SKILL.md`나 가이드를 따릅니다.
 
 ---
 
 ## URL 자동 처리
 
-사용자가 URL만 입력하면:
-1. WebFetch로 읽기 시도
-2. 실패 시 anyweb-reader 스킬 자동 사용
+[AGENTS.md의 Web Fetching Strategy](AGENTS.md#web-fetching-strategy)를 따릅니다.
 
 ---
 
 ## 1회용 코딩
 
-그때그때 필요한 스크립트는 루트에 바로 만들어도 됩니다.
-결과물은 git history에 남아 나중에 참조 가능합니다.
+[AGENTS.md의 Editing Rules](AGENTS.md#editing-rules)와 [Generated Files And Assets](AGENTS.md#generated-files-and-assets)를 따릅니다.
 
 ---
 
 ## Memory 관리
 
-- 위치: `.claude/memory/`
-- 인덱스: `MEMORY.md`
-- 대화에서 기억할 내용(선호, 피드백, 프로젝트 컨텍스트)이 생기면 즉시 저장
+[AGENTS.md의 Memory Management](AGENTS.md#memory-management)에서 공통 저장 위치와 운영 기준을 관리합니다.
 
 ---
 
 ## 새 스킬 추가하기
 
-반복되는 작업이 생기면 스킬로 만드세요.
-가이드: `docs/skills-guide/how-to-create-skills.md`
+[AGENTS.md의 Skill Usage](AGENTS.md#skill-usage)에 연결된 스킬 제작 가이드를 따릅니다.

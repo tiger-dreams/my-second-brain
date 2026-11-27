@@ -55,7 +55,8 @@ AGENTS.md와 CLAUDE.md를 읽고 처음 사용하는 업무 공간으로 설정�
 
 ## 4. 내 업무 흐름으로 바꾸기
 
-- 기록 항목과 상태: `CLAUDE.md`, `AGENTS.md`, 주간 로그 템플릿에서 조정합니다.
+- 공통 운영 규칙·기록 기준: `AGENTS.md`에서 수정합니다. `CLAUDE.md`와 가이드는 해당 규칙을 참조합니다.
+- 내 프로필·도구별 안내: `CLAUDE.md`에서 수정합니다. 로그 서식 예시는 주간 로그 템플릿에서 관리합니다.
 - 반복되는 요청: [스킬 만들기](skills-guide/how-to-create-skills.md)를 참고합니다.
 - 결과물을 만드는 방법: [PPT 제작](../.claude/skills/pptx/deck-generation.md), [안내 영상 제작](skills-guide/walkthrough-video.md)에서 시작합니다.
 
