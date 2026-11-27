@@ -27,6 +27,12 @@ At the start of a task, also read `CLAUDE.md` for the shared user profile and wo
 
 Keep shared operating rules in `AGENTS.md`; keep setup, the user profile, and tool-specific instructions in `CLAUDE.md`. If a topic needs a separate guide, name that guide as the canonical source and link to it. Update the canonical rule and its references instead of maintaining separate copies for each tool. When existing instructions conflict and the intended rule is unclear, identify the conflict rather than silently choosing one.
 
+### Language And Translations
+
+Use the user's configured language for replies, setup questions, and work logs. An explicit language request for a task takes precedence; before a preference is configured, follow the language of the user's conversation, defaulting to Korean if unclear. Translate setup questions to that language while preserving filenames, markers, identifiers, and source quotations.
+
+README and getting-started translations are reader-facing guidance, not separate operating policies. Maintain the supported Korean, English, and Japanese documents together according to `docs/i18n.md`. Do not claim the whole repository is translated when only the entry documents are localized.
+
 ### Confirm The Repository Before Editing
 
 Before changing repository files, verify the checkout root, remote host, owner/repository, current branch, and existing changes. Match them against the user's requested target; a similar folder or repository name is insufficient. Briefly identify the target in the first progress update once verified. For a local folder without Git, state the folder and that it has no Git remote.
@@ -79,7 +85,7 @@ Do not spend heavy browser automation credits when a normal fetch is enough.
 
 ## Logging Strategy
 
-Use Korean by default, matching the repository's existing documentation style.
+Use the user's configured or explicitly requested logging language, following Language And Translations above.
 
 Use `docs/weekly-logs/` for work memory that should become part of the user's second brain.
 
@@ -209,7 +215,7 @@ For template repositories, prefer documentation and examples that work for a new
 
 When drafting public-facing posts:
 
-- Write in Korean unless the user asks otherwise.
+- Write in the user's configured language unless the user requests another language for the draft.
 - Do not insert local image paths as Markdown images.
 - Use placeholders such as:
 
